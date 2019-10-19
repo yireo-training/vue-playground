@@ -1,24 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-container>
+      <b-nav tabs>
+        <router-link to="/" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <b-nav-item :active="isExactActive" :href="href" @click="navigate">Home</b-nav-item>
+        </router-link>
+        <router-link to="/counter" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <b-nav-item :active="isActive" :href="href" @click="navigate">Counter</b-nav-item>
+        </router-link>
+        <router-link to="/clock" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <b-nav-item :active="isActive" :href="href" @click="navigate">Clock</b-nav-item>
+        </router-link>
+        <router-link to="/products" v-slot="{ href, route, navigate, isActive, isExactActive }">
+          <b-nav-item :active="isActive" :href="href" @click="navigate">Products</b-nav-item>
+        </router-link>
+      </b-nav>
+
+      <router-view></router-view>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  components: {}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

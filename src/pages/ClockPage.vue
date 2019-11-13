@@ -14,6 +14,7 @@ export default {
     };
   },
   created() {
+    this.time = new Date().toLocaleTimeString();
     this.interval = setInterval(() => {
       this.time = new Date().toLocaleTimeString();
     }, 1000);

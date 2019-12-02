@@ -1,0 +1,9 @@
+query {
+  cmsPages {
+    items {
+      identifier
+      url_key
+      title
+    }
+  }
+}

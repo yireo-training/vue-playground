@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import getMyProductsQuery from "../../state/graphql/queries/getMyProducts";
+import getProductsQuery from "../../state/graphql/queries/getProducts";
 import config from "../../config";
 
 export default {
   data() {
     return {
-      searchWord: "",
+      searchWord: "dress",
       products: [],
       loading: false,
       error: false
@@ -47,7 +47,7 @@ export default {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          query: getMyProductsQuery,
+          query: getProductsQuery,
           variables: this.getVariables()
         })
       })
@@ -69,6 +69,9 @@ export default {
 
       return;
     }
+  },
+  created() {
+    this.fetchData();
   },
   watch: {
     searchWord: function() {

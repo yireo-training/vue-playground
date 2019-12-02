@@ -1,5 +1,5 @@
 export default `
-query getMyProducts($search: String) {
+query getProducts($search: String) {
     products(search: $search) {
       items {
         id

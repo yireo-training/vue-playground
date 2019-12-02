@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ApolloClient from "apollo-boost"
 import VueApollo from "vue-apollo"
 import BootstrapVue from 'bootstrap-vue'
+import store from "./state/vuex/store";
+import client from "./state/graphql/client";
 
 import App from "./App.vue";
 import HomePage from "./pages/HomePage";
@@ -10,6 +11,8 @@ import CounterPage from "./pages/CounterPage";
 import ClockPage from "./pages/ClockPage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductPage from "./pages/ProductPage";
+import CmsPagesPage from "./pages/CmsPagesPage";
+import CmsPagePage from "./pages/CmsPagePage";
 import ExamplePlugin from "./plugins/example";
 
 Vue.config.productionTip = false;
@@ -19,7 +22,9 @@ const routes = [
   { path: "/counter", component: CounterPage },
   { path: "/clock", component: ClockPage },
   { path: "/products", component: ProductsPage },
-  { path: "/product/:id", component: ProductPage }
+  { path: "/product/:id", component: ProductPage },
+  { path: "/blog", component: CmsPagesPage },
+  { path: "/blog/:id", component: CmsPagePage }
 ];
 
 const router = new VueRouter({
@@ -28,12 +33,8 @@ const router = new VueRouter({
   routes
 });
 
-const apolloClient = new ApolloClient({
-  uri: "http://m2.betelgeuse.yr/graphql"
-})
-
 const apolloProvider = new VueApollo({
-  defaultClient: apolloClient,
+  defaultClient: client,
 })
 
 Vue.use(VueApollo)
@@ -43,6 +44,7 @@ Vue.use(ExamplePlugin);
 
 new Vue({
   render: h => h(App),
+  store,
   router,
   apolloProvider
 }).$mount("#app");

@@ -1,22 +1,21 @@
 <template>
   <div>
-    <div v-if="error">Error: {{ error }}</div>
-    <div v-if="loading">Loading ...</div>
     <div v-if="!product">No products found</div>
     <div v-if="product">
       Product name: {{ product.name }}<br/>
-      Product SKU: {{ product.sku }}
+      Product SKU: {{ product.sku }}<br/>
+      <div v-if="product && product.image"><img v-bind:src="product.image.url" width="100"/></div>
     </div>
   </div>
 </template>
 
 <script>
-import getMyProductQuery from "../../state/graphql/queries/getMyProduct.graphql";
+import getProductQuery from "../../state/graphql/queries/getProduct.graphql";
 
 export default {
   apollo: {
       product: {
-        query: getMyProductQuery,
+        query: getProductQuery,
         variables() {
           return {
             id: this.productId
@@ -27,9 +26,7 @@ export default {
   data() {
     return {
       productId: this.$route.params.id,
-      product: {},
-      loading: false,
-      error: false
+      product: {}
     };
   }
 };

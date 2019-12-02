@@ -1,6 +1,0 @@
-query getMyProduct($id: Int!) {
-  product:productById(id: $id) {
-    sku
-    name
-  }
-}

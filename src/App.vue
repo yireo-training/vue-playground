@@ -34,6 +34,14 @@
             >Products</b-nav-item
           >
         </router-link>
+        <router-link
+          to="/blog"
+          v-slot="{ href, route, navigate, isActive, isExactActive }"
+        >
+          <b-nav-item :active="isActive" :href="href" @click="navigate"
+            >Blog</b-nav-item
+          >
+        </router-link>
       </b-nav>
 
       <router-view></router-view>

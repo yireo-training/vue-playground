@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>ItemList</h2>
     <input v-model.number="newName" v-on:keyup.enter="addItem" />
     <button v-on:click="addItem">Add</button>
     <ul>

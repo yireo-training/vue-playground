@@ -6,11 +6,15 @@
     </div>
     <div>
       Last name:
-      <slot name="lastname">Dough</slot>
+      <slot name="lastname" v-bind:user="user">{{ user.lastname }}</slot>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    user: Object
+  }
+};
 </script>

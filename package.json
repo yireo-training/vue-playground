@@ -15,7 +15,7 @@
     "bootstrap-vue": "^2.15.0",
     "core-js": "^2.6.5",
     "graphql": "^14.5.8",
-    "vue": "^2.6.10",
+    "vue": "@next",
     "vue-apollo": "^3.0.0",
     "vue-router": "^3.1.2",
     "vuex": "^3.1.2"

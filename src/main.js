@@ -4,6 +4,7 @@ import VueApollo from "vue-apollo"
 import BootstrapVue from 'bootstrap-vue'
 import store from "./state/vuex/store";
 import client from "./state/graphql/client";
+import { EventBus } from "./event";
 
 import App from "./App.vue";
 import HomePage from "./pages/HomePage";
@@ -42,9 +43,11 @@ Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(ExamplePlugin);
 
+Vue.prototype.$eventBus = EventBus;
+
 new Vue({
   render: h => h(App),
-  store,
-  router,
-  apolloProvider
+  store: store,
+  router: router,
+  apolloProvider: apolloProvider
 }).$mount("#app");

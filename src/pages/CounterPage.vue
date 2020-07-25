@@ -7,13 +7,17 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api'
+import { ref, watchEffect } from '@vue/composition-api'
 
 export default {
   name: "CounterPage",
   setup() {
     const counter = ref(0);
     const onClick = () => counter.value++;
+
+    watchEffect(() => {
+      console.log('Counter is', counter.value);
+    });
 
     return {
       counter, onClick

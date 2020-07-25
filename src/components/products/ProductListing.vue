@@ -3,7 +3,7 @@
     <input v-model="searchWord" />
     <div v-if="!searchWord">Please type in a valid search</div>
     <div v-if="error">Error: {{ error }}</div>
-    <div v-if="loading">Loading ...</div>
+    <div v-if="loading"><b-spinner label="Spinning"></b-spinner></div>
     <div v-if="products.length === 0 && !loading">No products found</div>
     <div v-if="products.length > 0">
       <ul>

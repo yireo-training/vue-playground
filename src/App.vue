@@ -12,7 +12,7 @@
         </router-link>
         <router-link
           to="/counter"
-          v-slot="{ href, route, navigate, isActive, isExactActive }"
+          v-slot="{ href, route, navigate, isActive }"
         >
           <b-nav-item :active="isActive" :href="href" @click="navigate"
             >Counter</b-nav-item
@@ -20,7 +20,7 @@
         </router-link>
         <router-link
           to="/clock"
-          v-slot="{ href, route, navigate, isActive, isExactActive }"
+          v-slot="{ href, route, navigate, isActive }"
         >
           <b-nav-item :active="isActive" :href="href" @click="navigate"
             >Clock</b-nav-item
@@ -28,7 +28,7 @@
         </router-link>
         <router-link
           to="/products"
-          v-slot="{ href, route, navigate, isActive, isExactActive }"
+          v-slot="{ href, route, navigate, isActive }"
         >
           <b-nav-item :active="isActive" :href="href" @click="navigate"
             >Products</b-nav-item
@@ -36,7 +36,7 @@
         </router-link>
         <router-link
           to="/blog"
-          v-slot="{ href, route, navigate, isActive, isExactActive }"
+          v-slot="{ href, route, navigate, isActive }"
         >
           <b-nav-item :active="isActive" :href="href" @click="navigate"
             >Blog</b-nav-item

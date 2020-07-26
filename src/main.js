@@ -1,10 +1,10 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import VueRouter from "vue-router";
-import VueApollo from "vue-apollo";
-import BootstrapVue from "bootstrap-vue";
-import store from "./state/vuex/store";
-import client from "./state/graphql/client";
-import { EventBus } from "./event";
+//import VueApollo from "vue-apollo";
+//import Vuex from "vuex";
+//import BootstrapVue from "bootstrap-vue";
+//import store from "./state/vuex/store";
+//import client from "./state/graphql/client";
 
 import App from "./App.vue";
 import HomePage from "./pages/HomePage";
@@ -14,10 +14,7 @@ import ProductsPage from "./pages/ProductsPage";
 import ProductPage from "./pages/ProductPage";
 import CmsPagesPage from "./pages/CmsPagesPage";
 import CmsPagePage from "./pages/CmsPagePage";
-import ExamplePlugin from "./plugins/example";
-import VueCompositionAPI from "@vue/composition-api";
-
-Vue.config.productionTip = false;
+//import ExamplePlugin from "./plugins/example";
 
 const routes = [
   { path: "/", component: HomePage },
@@ -35,21 +32,19 @@ const router = new VueRouter({
   routes,
 });
 
-const apolloProvider = new VueApollo({
-  defaultClient: client,
-});
+//const apolloProvider = new VueApollo({
+//  defaultClient: client,
+//});
 
-Vue.use(VueApollo);
-Vue.use(VueRouter);
-Vue.use(BootstrapVue);
-Vue.use(ExamplePlugin);
-Vue.use(VueCompositionAPI);
-
-Vue.prototype.$eventBus = EventBus;
-
-new Vue({
-  render: (h) => h(App),
+const app = createApp(App, {
   store: store,
   router: router,
-  apolloProvider: apolloProvider,
-}).$mount("#app");
+//  apolloProvider: apolloProvider,
+});
+
+app.use(VueRouter);
+//app.use(VueApollo);
+//app.use(Vuex);
+//app.use(BootstrapVue);
+//app.use(ExamplePlugin);
+app.mount("#app");

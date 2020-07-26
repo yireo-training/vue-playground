@@ -1,10 +1,7 @@
 import Vuex from "vuex";
-import Vue from "vue";
 import getCmsPages from "../graphql/queries/getCmsPages.graphql";
 import getCmsPage from "../graphql/queries/getCmsPage.graphql";
 import client from "../graphql/client";
-
-Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {

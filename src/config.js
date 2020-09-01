@@ -20,6 +20,10 @@ export default {
         {
             url: "/blog",
             label: "Blog"
+        },
+        {
+            url: "/conversations",
+            label: "Conversations"
         }
     ]
 }

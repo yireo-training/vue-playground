@@ -5,6 +5,8 @@ import BootstrapVue from 'bootstrap-vue'
 import store from "./state/vuex/store";
 import client from "./state/graphql/client";
 import { EventBus } from "./event";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import App from "./App.vue";
 import HomePage from "./pages/HomePage";
@@ -15,6 +17,7 @@ import ProductPage from "./pages/ProductPage";
 import CmsPagesPage from "./pages/CmsPagesPage";
 import CmsPagePage from "./pages/CmsPagePage";
 import ExamplePlugin from "./plugins/example";
+import Conversations from "./components/Conversations"
 
 Vue.config.productionTip = false;
 
@@ -25,7 +28,8 @@ const routes = [
   { path: "/products", component: ProductsPage },
   { path: "/product/:id", component: ProductPage },
   { path: "/blog", component: CmsPagesPage },
-  { path: "/blog/:id", component: CmsPagePage }
+  { path: "/blog/:id", component: CmsPagePage },
+  { path: "/conversations", component: Conversations }
 ];
 
 const router = new VueRouter({
@@ -42,6 +46,7 @@ Vue.use(VueApollo)
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(ExamplePlugin);
+Vue.use(VueAxios, axios)
 
 Vue.prototype.$eventBus = EventBus;
 
